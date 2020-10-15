@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+package OuterTest.InnerTest;
+
+message TestMessage {
+  optional string string_member = 1;
+  optional int32 int_member = 2;
+  repeated int32 repeated_int_member = 3;
+  repeated string repeated_string_member = 4;
+  map<int32, string> map_member = 5;
+}
+
+message TestNestedMessage {
+  optional TestMessage test_message_member = 1;
+  optional int32 int_member = 2;
+}
+
+message TestRequest {
+  optional int32 request_id = 1;
+  optional string request_string = 2;
+}
+
+message TestResponse {
+  optional int32 response_id = 1;
+  optional string response_string = 2;
+}
+
+service TestRPCService {
+  rpc GetSomething(TestRequest) returns (TestResponse);
+}
