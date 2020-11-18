@@ -1,0 +1,8 @@
+syntax = "proto3";
+
+package T;
+
+message ImportTest {
+  optional string id = 1;
+  optional string password = 2;
+}
